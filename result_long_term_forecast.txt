@@ -1,0 +1,52 @@
+baseline_itrans_iTransformer_dpos_MS_ft12_sl12_ll1_pl64_dm2_nh2_el1_dl256_df1_fcfixed_ebTrue_dtiTransformer-on-dpos-data_projection_0  
+mse:1.0568816833256278e-05, mae:0.003017822280526161, rmse:0.003250971669331193
+
+baseline_itrans_iTransformer_dpos_MS_ft12_sl12_ll1_pl64_dm2_nh2_el1_dl256_df1_fcfixed_ebTrue_dtiTransformer-on-dpos-data_projection_0  
+mse:0.011799363419413567, mae:0.09450910985469818, rmse:0.10862487554550171
+
+baseline_itrans_iTransformer_dpos_MS_ft12_sl12_ll1_pl64_dm2_nh2_el1_dl256_df1_fcfixed_ebTrue_dtiTransformer-on-dpos-data_projection_0  
+mse:0.011799363419413567, mae:0.09450910985469818, rmse:0.10862487554550171, std:0.05779744312167168
+
+baseline_itrans_iTransformer_dpos_MS_ft12_sl12_ll1_pl64_dm2_nh2_el1_dl256_df1_fcfixed_ebTrue_dtiTransformer-on-dpos-data_projection_0  
+mse:0.021255744621157646, mae:0.08602994680404663, rmse:0.14579349756240845, std:0.13430573046207428
+
+
+baseline_itrans_iTransformer_dpos_MS_ft12_sl12_ll1_pl64_dm2_nh2_el1_dl256_df1_fcfixed_ebTrue_dtiTransformer-on-dpos-data_projection_0  
+mse:3.4545903417892987e-06, mae:0.0014692503027617931, rmse:0.0018586528021842241, std:0.0013970540603622794
+
+baseline_itrans_iTransformer_dpos_MS_ft12_sl12_ll1_pl64_dm2_nh2_el1_dl256_df1_fcfixed_ebTrue_dtiTransformer-on-dpos-data_projection_0  
+mse:1.0568816833256278e-05, mae:0.003017822280526161, rmse:0.003250971669331193, std:0.0012142607010900974
+
+baseline_itrans_iTransformer_dpos_MS_ft12_sl12_ll1_pl64_dm2_nh2_el1_dl256_df1_fcfixed_ebTrue_dtiTransformer-on-dpos-data_projection_0  
+mse:0.002108893357217312, mae:0.02197669818997383, rmse:0.04592268913984299, std:0.04545411840081215
+
+baseline_itrans_iTransformer_dpos_MS_ft12_sl12_ll1_pl64_dm2_nh2_el1_dl256_df1_fcfixed_ebTrue_dtiTransformer-on-dpos-data_projection_0  
+mse:0.000206996759516187, mae:0.007218703627586365, rmse:0.014387382194399834, std:0.014359806664288044
+
+baseline_itrans_iTransformer_dpos_MS_ft12_sl12_ll1_pl64_dm2_nh2_el1_dl256_df1_fcfixed_ebTrue_dtiTransformer-on-dpos-data_projection_0  
+mse:0.2337738424539566, mae:0.29669955372810364, rmse:0.4835016429424286, std:0.4805167615413666
+
+baseline_itrans_iTransformer_dpos_MS_ft12_sl12_ll1_pl64_dm2_nh2_el1_dl256_df1_fcfixed_ebTrue_dtiTransformer-on-dpos-data_projection_0  
+mse:1.8149540424346924, mae:0.6477181315422058, rmse:1.3472023010253906, std:1.3374863862991333
+
+baseline_itrans_iTransformer_dpos_MS_ft12_sl12_ll1_pl64_dm2_nh2_el1_dl256_df1_fcfixed_ebTrue_dtiTransformer-on-dpos-data_projection_0  
+mse:0.012884088791906834, mae:0.09303730726242065, rmse:0.11350809782743454, std:0.08073319494724274
+
+baseline_itrans_iTransformer_dpos_MS_ft12_sl12_ll1_pl64_dm2_nh2_el1_dl256_df1_fcfixed_ebTrue_dtiTransformer-on-dpos-data_projection_0  
+mse:0.02949599362909794, mae:0.15460889041423798, rmse:0.1717439740896225, std:0.07906091958284378
+
+baseline_itrans_iTransformer_dpos_MS_ft12_sl12_ll1_pl64_dm2_nh2_el1_dl256_df1_fcfixed_ebTrue_dtiTransformer-on-dpos-data_projection_0  
+mse:2.506589771655854e-05, mae:0.00491147069260478, rmse:0.005006585270166397, std:0.0009712660685181618
+
+baseline_itrans_iTransformer_dpos_MS_ft12_sl12_ll1_pl64_dm2_nh2_el1_dl256_df1_fcfixed_ebTrue_dtiTransformer-on-dpos-data_projection_0  
+mse:5.838943707203725e-06, mae:0.002125364262610674, rmse:0.0024163906928151846, std:0.0012524414341896772
+
+baseline_itrans_iTransformer_dpos_MS_ft12_sl12_ll1_pl64_dm2_nh2_el1_dl256_df1_fcfixed_ebTrue_dtiTransformer-on-dpos-data_projection_0  
+mse:3.5471146020427113e-06, mae:0.0014847839483991265, rmse:0.0018833784852176905, std:0.0014748068060725927
+
+baseline_itrans_iTransformer_dpos_MS_ft12_sl12_ll1_pl64_dm2_nh2_el1_dl256_df1_fcfixed_ebTrue_dtiTransformer-on-dpos-data_projection_0  
+mse:3.4545903417892987e-06, mae:0.0014692503027617931, rmse:0.0018586528021842241, std:0.0013970540603622794
+
+baseline_itrans_iTransformer_dpos_MS_ft12_sl12_ll1_pl64_dm2_nh2_el1_dl256_df1_fcfixed_ebTrue_dtiTransformer-on-dpos-data_projection_0  
+mse:0.021255744621157646, mae:0.08602994680404663, rmse:0.14579349756240845, std:0.13430573046207428
+

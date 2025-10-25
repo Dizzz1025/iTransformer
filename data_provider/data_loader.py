@@ -6,6 +6,8 @@ from torch.utils.data import Dataset, DataLoader
 from sklearn.preprocessing import StandardScaler
 from utils.timefeatures import time_features
 import warnings
+import scipy.io
+
 
 warnings.filterwarnings('ignore')
 
@@ -533,3 +535,95 @@ class Dataset_Pred(Dataset):
 
     def inverse_transform(self, data):
         return self.scaler.inverse_transform(data)
+
+class Dataset_Dpos(Dataset):
+    def __init__(self, root_path, flag='train', size=(12, 12, 1), features='MS', target='OT', timeenc=0,
+                 scale=True, target_channel=3):
+        """
+        iTransformer格式的数据集构造方式
+
+        Args:
+            root_path (str): 数据文件夹路径，内部包含 l1.mat, l2.mat, l3.mat
+            flag (str): 'train', 'val', 'test'
+            size (tuple): (seq_len, label_len, pred_len)
+            target_channel (int): 使用哪个通道
+        """
+        # 1. 参数初始化
+        self.seq_len, self.label_len, self.pred_len = size
+        assert flag in ['train', 'val', 'test']
+        self.set_type = flag
+        self.scale = scale
+        self.target_channel = target_channel
+        self.features = features
+        self.target = target
+        self.timeenc = timeenc
+
+        # 2. 读取数据
+        path_l1 = os.path.join(root_path, 'l1.mat')
+        path_l2 = os.path.join(root_path, 'l2.mat')
+        path_l3 = os.path.join(root_path, 'l3.mat')
+        l1 = scipy.io.loadmat(path_l1)['data']  # [T, C]
+        l2 = scipy.io.loadmat(path_l2)['data']
+        l3 = scipy.io.loadmat(path_l3)['data']
+
+        assert l1.shape == l2.shape == l3.shape, "三个节点数据维度不一致！"
+        T = l1.shape[0]
+
+        # 3. 构造输入和目标
+        input_seq = np.stack([l2[:, target_channel], l3[:, target_channel]], axis=-1)  # shape [T, 2]
+        target_seq = l1[:, target_channel].reshape(-1, 1)  # shape [T, 1]
+
+        # 4. 划分训练、验证、测试
+        index_range = {
+            'val':  (13999, 14999),
+            'train':  (10699, 13999),
+            'test1':  (1299,  5299),
+            'test2':  (6599,  9899),
+            # 'test':  (1299,  5299),
+            'test': (6599,  9899),
+        }
+        
+        self.input_seq = input_seq
+        self.target_seq = target_seq
+
+        # 5. 归一化（仅 fit 一次）
+        self.input_scaler = StandardScaler()
+        self.label_scaler = StandardScaler()
+        if self.scale:
+            self.input_scaler.fit(input_seq[index_range['train'][0]:index_range['train'][1]])
+            self.label_scaler.fit(target_seq[index_range['train'][0]:index_range['train'][1]])
+
+            input_data = self.input_scaler.transform(input_seq)
+            label_data = self.label_scaler.transform(target_seq)
+        else:
+            input_data = input_seq
+            label_data = target_seq
+            
+        start_index, end_index = index_range[self.set_type]
+        # 保存切片数据
+        self.data_x = input_data[start_index:end_index]
+        self.data_y = label_data[start_index:end_index]
+
+    def __getitem__(self, index):
+        s_begin = index
+        s_end = s_begin + self.seq_len
+        r_begin = s_end
+        r_end = r_begin + self.pred_len
+
+        seq_x = self.data_x[s_begin:s_end]                 # [seq_len, 2]
+        seq_y = self.data_y[r_begin:r_end]                 # [pred_len, 1]
+
+        # dummy 时间编码（你可以改成真时间编码）
+        seq_x_mark = torch.zeros((self.seq_len, 1))
+        seq_y_mark = torch.zeros((self.pred_len, 1))
+
+        return torch.tensor(seq_x, dtype=torch.float32), \
+               torch.tensor(seq_y, dtype=torch.float32), \
+               seq_x_mark, seq_y_mark
+
+    def __len__(self):
+        return len(self.data_x) - self.seq_len - self.pred_len + 1
+
+    def inverse_transform(self, data):
+        """将预测结果反归一化（只对输入做了归一化）"""
+        return self.label_scaler.inverse_transform(data)

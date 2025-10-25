@@ -1,0 +1,4 @@
+python run.py --is_training 0 --model_id baseline_itrans --model iTransformer --data dpos --root_path ./data/ --data_path dummy.csv --features MS --target dummy --seq_len 12 --label_len 12 --pred_len 1 --enc_in 2 --dec_in 1 --c_out 1 --d_model 64 --n_heads 2 --e_layers 2 --d_ff 256 --moving_avg 3 --dropout 0.1 --learning_rate 0.0001 --train_epochs 10 --batch_size 32 --inverse --des iTransformer-on-dpos-data
+
+
+@REM python run.py --is_training 1 --model_id baseline_itrans --model iTransformer --data dpos --root_path ./data/ --data_path dummy.csv --features MS --target dummy --seq_len 12 --label_len 12 --pred_len 1 --enc_in 2 --dec_in 1 --c_out 1 --d_model 512 --n_heads 8 --e_layers 2 --d_ff 2048 --moving_avg 3 --dropout 0.1 --learning_rate 0.0001 --train_epochs 10 --batch_size 32 --inverse --des iTransformer-on-dpos-data
